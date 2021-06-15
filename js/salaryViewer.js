@@ -270,7 +270,7 @@
 
       if (isValidDate(dateObj.startDate) && isValidDate(dateObj.endDate)) {
         tableau.connectionData = JSON.stringify(dateObj);
-        tableau.connectionName = "Invoicing tool";
+        tableau.connectionName = "Salary viewer";
         tableau.submit();
       } else {
         const errorMsg = `
