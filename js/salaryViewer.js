@@ -137,9 +137,9 @@
   };
 
   var API_KEY = "123";
-  // var BASE_URL =
-  //    `http://sv-dev.noveogroup.com/api/getPayments?token=${API_KEY}&`;
-  var BASE_URL ='../json/SalaryViewerConnectionData.json';
+  var BASE_URL =
+      `http://sv-dev.noveogroup.com/api/getPayments?token=${API_KEY}&`;
+  // var BASE_URL ='../json/SalaryViewerConnectionData.json';
 
   var MONTH_MAP = [
     "jan",
@@ -161,8 +161,8 @@
    * @param {string} startDate 
    * @param {string} endDate 
    */
-  // const createURL = (startDate, endDate) => `${BASE_URL}startDate=${startDate}&endDate=${endDate}`;
-  const createURL = () => `${BASE_URL}`;
+  const createURL = (startDate, endDate) => `${BASE_URL}startDate=${startDate}&endDate=${endDate}`;
+  // const createURL = () => `${BASE_URL}`;
 
   /**
    * Возвращает строковый вариант месяца по его порядковому номеру
