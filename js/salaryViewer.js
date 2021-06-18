@@ -138,7 +138,7 @@
 
   var API_KEY = "123";
   var BASE_URL =
-      `http://sv-dev.noveogroup.com/api/getPayments?token=${API_KEY}&`;
+      `https://sv-dev.noveogroup.com/api/getPayments?token=${API_KEY}&`;
   // var BASE_URL ='../json/SalaryViewerConnectionData.json';
 
   var MONTH_MAP = [
