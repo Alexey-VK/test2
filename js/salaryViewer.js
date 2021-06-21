@@ -241,7 +241,7 @@
         transformToTableRows(row, _tableData);
       });
 
-      console.log(tableData);
+      console.log(_tableData);
 
       _tableData = _tableData.sort((a, b) => (Date.parse(a.date) - Date.parse(b.date)));
       
