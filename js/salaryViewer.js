@@ -17,7 +17,7 @@
         dataType: tableau.dataTypeEnum.string,
       },
       {
-        id: "sirname",
+        id: "surname",
         dataType: tableau.dataTypeEnum.string,
       },
       {
@@ -181,45 +181,41 @@
    * }} dateObject 
    */
   const transformToTableRows = (row, targetArray) => {
-    const { id, login, name, sirname, payments } = row;
+    const { id, login, name, surname, payments } = row;
     
-    if (payments.length > 0) {
-        payments.forEach((payment) => {
-          for (let year in payment) {
-            for (let month in payment[year]) {
-              const { currency, efforts, overpaid, accrued, paid_llc, paid_llp } = payment[year][month];
-              const { benefit, bonus, extra, medical_pay, salary, sick_pay, total, vacation_pays } = accrued;
-              const { cards_1, cards_2, cards_3, cards_4 } = paid_llc;
-              const { credit, llp_1, llp_2, llp_overpaid, prepayment } = paid_llp;
-              const monthNum = getNumberByMonth(month);
-              const date = `${year}-${monthNum < 10 ? `0${monthNum}` : monthNum}-01`;
-              
-              const tRow = {
-                id,
-                login,
-                name,
-                sirname,
-                date,
-                currency,
-                efforts,
-                overpaid,
-                benefit, 
-                bonus, 
-                extra, 
-                medical_pay, 
-                salary, 
-                sick_pay, 
-                total, 
-                vacation_pays,
-                cards_1, cards_2, cards_3, cards_4,
-                credit, llp_1, llp_2, llp_overpaid, prepayment,
-              }
-
-              targetArray.push(tRow);
-            }  
+    if (payments) {
+      for (let year in payments) {
+        for (let month in payments[year]) {
+          const { currency, efforts, overpaid, accrued, paid_llc, paid_llp } = payments[year][month];
+          const { benefit, bonus, extra, medical_pay, salary, sick_pay, total, vacation_pays } = accrued;
+          const { cards_1, cards_2, cards_3, cards_4 } = paid_llc;
+          const { credit, llp_1, llp_2, llp_overpaid, prepayment } = paid_llp;
+          const monthNum = getNumberByMonth(month);
+          const date = `${year}-${monthNum < 10 ? `0${monthNum}` : monthNum}-01`;
+          
+          const tRow = {
+            id,
+            login,
+            name,
+            surname,
+            date,
+            currency,
+            efforts,
+            overpaid,
+            benefit, 
+            bonus, 
+            extra, 
+            medical_pay, 
+            salary, 
+            sick_pay, 
+            total, 
+            vacation_pays,
+            cards_1, cards_2, cards_3, cards_4,
+            credit, llp_1, llp_2, llp_overpaid, prepayment,
           }
-        })
-        
+          targetArray.push(tRow);
+        }
+      }
     } else {
       return false;
     }
